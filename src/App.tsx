@@ -1,8 +1,13 @@
+import { CreateTasks } from "./components/CreateTasks"
 import { Header } from "./components/Header"
 
 function App() {
   return (
-    <Header />
+    <div>
+      <Header />
+      <CreateTasks />
+    </div>
+
   )
 }
 

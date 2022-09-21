@@ -1,0 +1,61 @@
+.container {
+  width: 736px;
+  margin: -27px auto 0;
+}
+.addTask {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.addTask input {
+  padding: 1rem;
+  background-color: var(--gray-500);
+  border-radius: 0.5rem;
+  flex: 1;
+  border: 1px solid var(--gray-700);
+  color: var(--gray-300);
+}
+.addTask button {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--blue-dark);
+  color: var(--gray-100);
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.addTask button:hover {
+  background-color: var(--blue-light);
+}
+.taskStatus {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.statusCreated {
+  color: var(--blue-light);
+  font-weight: bold;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.statusDone {
+  color: var(--purple-light);
+  font-weight: bold;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.statusCount {
+  color: var(--gray-200);
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  background-color: var(--gray-400);
+}
