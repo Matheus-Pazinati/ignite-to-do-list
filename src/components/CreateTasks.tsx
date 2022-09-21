@@ -1,5 +1,6 @@
 import styles from './CreateTasks.module.css'
 import { PlusCircle } from 'phosphor-react'
+import { EmptyList } from './EmptyList'
 
 export function CreateTasks() {
   return (
@@ -24,7 +25,8 @@ export function CreateTasks() {
           <span>Concluídas </span>
           <span className={styles.statusCount}>0</span></p>
       </div>
-    </div>
 
+      <EmptyList />
+    </div>
   )
 }
