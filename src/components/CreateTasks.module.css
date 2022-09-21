@@ -33,6 +33,7 @@
 }
 .taskStatus {
   margin-top: 4rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
