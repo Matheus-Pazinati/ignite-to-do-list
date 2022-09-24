@@ -5,6 +5,7 @@ import { Task } from './Task'
 
 import styles from './CreateTasks.module.css'
 import { PlusCircle } from 'phosphor-react'
+import { EmptyList } from './EmptyList';
 
 interface NewTaskProps {
   content: string;
@@ -15,6 +16,8 @@ export function CreateTasks() {
 const [tasks, setTasks] = useState<NewTaskProps[]>([])
 
 const [newTask, setNewTask] = useState<NewTaskProps>({content: '', isComplete: false})
+
+const hasTasks = tasks.length > 0;
 
 function handleNewTask(event: ChangeEvent<HTMLInputElement> ) {
   event.preventDefault()
@@ -88,16 +91,19 @@ const checkedTasks = tasks.filter((task) => {
           <span>Concluídas</span>
           <span className={styles.statusCount}>{checkedTasks.length}</span></p>
       </div>
-        {tasks.map((task) => {
-          return (
-           <Task 
-            content={task.content} 
-            key={task.content} 
-            completed={task.isComplete}
-            onCheck={checkTask} 
-           />
-          )
-        })}
+        {hasTasks ? 
+          tasks.map((task) => {
+            return (
+            <Task 
+              content={task.content} 
+              key={task.content} 
+              completed={task.isComplete}
+              onCheck={checkTask} 
+            />
+            )
+          })
+          : 
+          <EmptyList />}
     </div>
   )
 }
