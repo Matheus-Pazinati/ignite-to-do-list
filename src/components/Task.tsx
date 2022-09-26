@@ -32,7 +32,7 @@ export function Task({ id, content, completed, onCheck }: TaskProps) {
       </label>
       <Trash
         size={24}
-        color='#808080'
+        className={styles.deleteIcon}
       />
     </div>
   )

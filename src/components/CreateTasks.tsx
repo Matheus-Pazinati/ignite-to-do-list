@@ -1,5 +1,5 @@
 // import { EmptyList } from './EmptyList'
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -35,6 +35,7 @@ export function CreateTasks() {
       ...task,
       content: event.target.value
     })
+    event.target.setCustomValidity('')
   }
 
   function handleCreateNewTask(event: FormEvent<HTMLFormElement>) {
@@ -64,6 +65,10 @@ export function CreateTasks() {
     setTasks(tasksChecked)
   }
 
+  function handleInvalidMessageSent(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('O campo está vazio! Insira algum texto.')
+  }
+
   const checkedTasks = tasks.filter((task) => {
     return task.isComplete === true;
   })
@@ -79,6 +84,8 @@ export function CreateTasks() {
           placeholder='Adicione uma nova tarefa'
           value={newTask.content}
           onChange={handleNewTask}
+          required
+          onInvalid={handleInvalidMessageSent}
         />
         <button type='submit'>
           Criar

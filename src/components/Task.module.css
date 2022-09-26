@@ -37,3 +37,14 @@
   border-radius: 50%;
   color: var(--gray-100);
 }
+.deleteIcon {
+  cursor: pointer;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #808080;
+  padding: 2px;
+}
+.deleteIcon:hover {
+  background-color: var(--gray-400);
+  color: var(--red-alert);
+}
