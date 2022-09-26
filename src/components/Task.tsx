@@ -7,13 +7,18 @@ interface TaskProps {
   id: string
   content: string;
   completed: boolean;
-  onCheck: (content: string) => void
+  onCheck: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
-export function Task({ id, content, completed, onCheck }: TaskProps) {
+export function Task({ id, content, completed, onCheck, onDelete }: TaskProps) {
 
-  function handleCheck() {
+  function handleCheckTask() {
     onCheck(id)
+  }
+
+  function handleDeleteTask() {
+    onDelete(id)
   }
 
   return (
@@ -22,7 +27,7 @@ export function Task({ id, content, completed, onCheck }: TaskProps) {
         <Checkbox.Root
          className={styles.checkbox}
          checked={completed}
-         onCheckedChange={handleCheck}
+         onCheckedChange={handleCheckTask}
         >
           <Checkbox.Indicator>
             <Check className={styles.iconCheck}/>
@@ -33,6 +38,7 @@ export function Task({ id, content, completed, onCheck }: TaskProps) {
       <Trash
         size={24}
         className={styles.deleteIcon}
+        onClick={handleDeleteTask}
       />
     </div>
   )

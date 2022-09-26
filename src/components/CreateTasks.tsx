@@ -29,6 +29,10 @@ export function CreateTasks() {
 
   const hasTasks = tasks.length > 0;
 
+  function handleInvalidMessageSent(event: InvalidEvent<HTMLInputElement>) {
+    event.target.setCustomValidity('O campo está vazio! Insira algum texto.')
+  }
+
   function handleNewTask(event: ChangeEvent<HTMLInputElement> ) {
     event.preventDefault()
     setNewTask({
@@ -65,8 +69,11 @@ export function CreateTasks() {
     setTasks(tasksChecked)
   }
 
-  function handleInvalidMessageSent(event: InvalidEvent<HTMLInputElement>) {
-    event.target.setCustomValidity('O campo está vazio! Insira algum texto.')
+  function deleteTask(id: string) {
+    const tasksListWithoutDeletedOne = tasks.filter((task) => {
+      return task.id !== id
+    })
+    setTasks(tasksListWithoutDeletedOne)
   }
 
   const checkedTasks = tasks.filter((task) => {
@@ -115,6 +122,7 @@ export function CreateTasks() {
               content={task.content} 
               completed={task.isComplete}
               onCheck={checkTask} 
+              onDelete={deleteTask}
             />
           )
         })
