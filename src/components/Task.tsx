@@ -4,15 +4,16 @@ import { Check, Trash } from 'phosphor-react'
 import styles from './Task.module.css'
 
 interface TaskProps {
+  id: string
   content: string;
   completed: boolean;
   onCheck: (content: string) => void
 }
 
-export function Task({ content, completed, onCheck }: TaskProps) {
+export function Task({ id, content, completed, onCheck }: TaskProps) {
 
   function handleCheck() {
-    onCheck(content)
+    onCheck(id)
   }
 
   return (
