@@ -110,7 +110,7 @@ export function CreateTasks() {
         </p>
           <p className={styles.statusDone}>
             <span>Concluídas</span>
-            <span className={styles.statusCount}>{checkedTasks.length}</span>
+            <span className={styles.statusCount}>{`${checkedTasks.length} de ${tasks.length}`}</span>
           </p>
       </div>
       {hasTasks ? 
