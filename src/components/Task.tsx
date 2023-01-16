@@ -29,11 +29,11 @@ export function Task({ id, content, completed, onCheck, onDelete }: TaskProps) {
          checked={completed}
          onCheckedChange={handleCheckTask}
         >
-          <Checkbox.Indicator>
+          <Checkbox.Indicator className={styles.indicator}>
             <Check className={styles.iconCheck}/>
           </Checkbox.Indicator>
         </Checkbox.Root>
-        {content}
+        <p className={styles.content} data-checked={completed}>{content}</p>
       </label>
       <Trash
         size={24}

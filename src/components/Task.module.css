@@ -30,6 +30,9 @@
 .checkbox:focus {
   box-shadow: none;
 }
+.content[data-checked=true] {
+  text-decoration: line-through;
+}
 .iconCheck {
   width: 100%;
   height: 100%;
